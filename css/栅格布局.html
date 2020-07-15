@@ -1,0 +1,110 @@
+<!--参考：https://juejin.im/entry/58c3d8bdda2f6056096b2b40 -->
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<div class="grid-container outline">
+    <div class="row">
+        <div class="col-1">
+            <p>
+<!--            可单独设置高度-->
+<!--                <div style="height: 30px">-->
+                    hhh
+<!--                </div>-->
+            </p>
+        </div>
+        <div class="col-1"><p>col-1</p></div>
+        <div class="col-1"><p>col-1</p></div>
+        <div class="col-1"><p>col-1</p></div>
+        <div class="col-1"><p>col-1</p></div>
+        <div class="col-1"><p>col-1</p></div>
+    </div>
+    <div class="row">
+        <div class="col-2"><p>col-2</p></div>
+        <div class="col-2"><p>col-2</p></div>
+        <div class="col-2"><p>col-2</p></div>
+    </div>
+    <div class="row">
+        <div class="col-3"><p>col-3</p></div>
+        <div class="col-3"><p>col-3</p></div>
+    </div>
+</div>
+</body>
+<style>
+    /*核心：1.用浮动并且清除浮动带来的影响 2.每个栅格列分别设置宽度 3.响应式*/
+    .grid-container{
+        width: 100%;
+        max-width: 1200px;
+    }
+
+    /*-- 使用 cleafix 清除浮动 -- */
+    .row:before,
+    .row:after {
+        content:"";
+        display: table ;
+        clear:both;
+    }
+
+    [class*='col-'] {
+        float: left;
+        min-height: 1px;
+        width: 16.66%;
+        /*-- 设置列的左右间隙 -- */
+        padding: 12px;
+        background-color: #FFDCDC;
+    }
+
+    .col-1{ width: 16.66%; }
+    .col-2{ width: 33.33%; }
+    .col-3{ width: 50%;    }
+    .col-4{ width: 66.66%; }
+    .col-5{ width: 83.33%; }
+    .col-6{ width: 100%;   }
+
+    .outline, .outline *{
+        outline: 1px solid #F6A1A1;
+    }
+
+    /*-- 列的额外内容样式 --*/
+    [class*='col-'] > p {
+        background-color: #FFC2C2;
+        padding: 0;
+        margin: 0;
+        text-align: center;
+        color: white;
+    }
+
+    /*响应式*/
+    @media all and (max-width:800px){
+        .col-1{ width: 33.33%;    }
+        .col-2{ width: 50%;        }
+        .col-3{ width: 83.33%;    }
+        .col-4{ width: 100%;    }
+        .col-5{ width: 100%;    }
+        .col-6{ width: 100%;      }
+
+        .row .col-2:last-of-type{
+            width: 100%;
+        }
+
+        .row .col-5 ~ .col-1{
+            width: 100%;
+        }
+    }
+    @media all and (max-width:650px){
+        .col-1{ width: 50%;     }
+        .col-2{ width: 100%;    }
+        .col-3{ width: 100%;    }
+        .col-4{ width: 100%;    }
+        .col-5{ width: 100%;    }
+        .col-6{ width: 100%;    }
+    }
+
+</style>
+</html>
