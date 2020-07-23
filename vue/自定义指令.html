@@ -1,0 +1,36 @@
+<!--当你在阅览某网站的图片时，可能会由于图片资源比较大而加载缓慢，需要消耗一小段时间来呈现到眼前，这个体验肯定是不太友好的（-->
+<!--就像网站切换页面，有时候会加载资源比较慢，为了给用户较好的体验，一般都会先出一个正在加载的友好提示页面），所以这个案例的-->
+<!--功能就是在图片资源还没加载出来时，先显示默认背景图，当图片资源真正加载出来了之后，再把真实图片放置到对应的位置上并显示出来。-->
+
+<div id="app2" class="demo">
+    <div v-for="item in imageList">
+    <img src="../assets/image/bg.png" alt="默认图" v-image="item.url">
+    </div>
+    </div>
+    <script>
+    // 全局挂载v-image
+    Vue.directive("image", {
+        inserted: function(el, binding) {
+            //为了真实体现效果，用了延时操作
+            setTimeout(function(){
+                el.setAttribute("src", binding.value);
+            }, Math.random() * 1200)
+        }
+    })
+new Vue({
+    el: "#app2",
+    data: {
+        imageList: [
+            {
+                url: "http://consumer-img.huawei.com/content/dam/huawei-cbg-site/greate-china/cn/mkt/homepage/section4/home-s4-p10-plus.jpg"
+            },
+            {
+                url: "http://consumer-img.huawei.com/content/dam/huawei-cbg-site/greate-china/cn/mkt/homepage/section4/home-s4-watch2-pro-banner.jpg"
+            },
+            {
+                url: "http://consumer-img.huawei.com/content/dam/huawei-cbg-site/en/mkt/homepage/section4/home-s4-matebook-x.jpg"
+            }
+        ]
+    }
+})
+</script>
