@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>transform</title>
+    <link rel="stylesheet" type="text/css" href="bootstrap/bootstrap.min.css">
+    <style type="text/css">
+        .demo {
+            padding: 10px;
+            margin-top: 100px;
+        }
+        .trans_effect {
+            display: block;
+            line-height: 100px;
+            width: 100px;
+            background: #beceeb;
+            margin: 30px auto;
+            text-align: center;
+            -webkit-transition: all 2s ease-in-out;
+            -moz-transition: all 2s ease-in-out;
+            -o-transition: all 2s ease-in-out;
+            -ms-transition: all 2s ease-in-out;
+            /*transition: transform 2s ease-in-out;*/
+        }
+        .trans_effect:hover {
+            -webkit-transform: rotate(720deg) scale(2,2);
+            -moz-transform: rotate(720deg) scale(2,2);
+            -o-transform: rotate(720deg) scale(2,2);
+            -ms-transform: rotate(720deg) scale(2,2);
+            transform: rotate(720deg) scale(2,2);
+        }
+    </style>
+</head>
+<body>
+<div class="demo">
+    <div class="trans_effect">look</div>
+</body>
+<script src="jquery/jquery.min.js"></script>
+<script src="bootstrap/bootstrap.min.js"></script>
+<script type="text/javascript">
+
+</script>
+</html>

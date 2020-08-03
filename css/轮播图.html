@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>平滑选项卡切换demo</title>
+    <link rel="stylesheet" type="text/css" href="bootstrap/bootstrap.min.css">
+    <style type="text/css">
+        /*有个缺陷就是最后一个到第一个是往回转，而不是平缓过渡*/
+        /*实现的很僵硬，参考意义不大*/
+        .demo {
+            padding: 10px;
+            margin: 100px 0 0 100px;
+        }
+        .trans_image_box {
+            /*1600是父元素的四倍，所以其他的三个展示不出来*/
+            width: 1600px;
+            height: 300px;
+            -webkit-transition: all 1s ease-in-out;
+            -moz-transition: all 1s ease-in-out;
+            -o-transition: all 1s ease-in-out;
+            transition: all 1s ease-in-out;
+        }
+        .trans_box {
+            width: 400px;
+            margin: 20px;
+            overflow: hidden;
+        }
+        .trans_image {
+            width: 400px;
+            float: left;
+        }
+        .trans_image_trigger {
+            padding-top: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div class="demo">
+
+    <div class="trans_box">
+        <div id="transImageBox" class="trans_image_box">
+            <img class="trans_image" src="star_1.png">
+            <img class="trans_image" src="star_2.png">
+            <img class="trans_image" src="star_3.png">
+            <img class="trans_image" src="star_4.jpeg">
+        </div>
+        <div id="transImageTrigger" class="trans_image_trigger">
+            <a href="#1">图片1</a>　
+            <a href="#2">图片2</a>　
+            <a href="#3">图片3</a>　
+            <a href="#4">图片4</a>
+        </div>
+    </div>
+
+</div>
+</body>
+<script src="jquery/jquery.min.js"></script>
+<script src="bootstrap/bootstrap.min.js"></script>
+<script type="text/javascript">
+    (function() {
+        var $ = function(id) {
+            return document.getElementById(id);
+        };
+        var oBox = $("transImageBox"),
+            oTrigger = $("transImageTrigger").getElementsByTagName("a"),
+            lTrigger = oTrigger.length;
+
+        if (oBox && lTrigger) {
+            for (var i = 0; i<lTrigger; i+=1) {
+                oTrigger[i].onclick = function() {
+                    var index = Number(this.href.replace(/.*#/g, "")) || 1;
+                    oBox.style.marginLeft = (1 - index) * 400 + "px";
+                    return false;
+                };
+            }
+        }
+    })();
+</script>
+</html>

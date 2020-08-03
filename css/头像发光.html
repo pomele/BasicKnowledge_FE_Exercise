@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>照片外发光动画demo</title>
+    <link rel="stylesheet" type="text/css" href="bootstrap/bootstrap.min.css">
+    <style type="text/css">
+        .demo {
+            padding: 10px;
+            margin: 100px 0 0 100px;
+        }
+        .anim_image {
+            padding: 3px;
+            border: 1px solid #beceeb;
+            background-color: white;
+            -moz-box-shadow: 0 0 8px rgba(72, 106, 170, 0.5);
+            -webkit-box-shadow: 0 0 8px rgba(72, 106, 170, 0.5);
+            box-shadow: 0 0 8px rgba(72, 106, 170, 0.5);
+        }
+        .anim_image:hover {
+            background-color: #f0f3f9;
+            -webkit-animation-name: glow;
+            -webkit-animation-duration: 1s;
+            -webkit-animation-iteration-count: infinite;
+            -webkit-animation-direction: alternate;
+            -webkit-animation-timing-function: ease-in-out;
+        }
+        @-webkit-keyframes glow {
+            0% {
+                -webkit-box-shadow: 0 0 12px rgba(72, 106, 170, 0.5);
+                border-color: rgba(160, 179, 214, 0.5);
+            }
+            100% {
+                -webkit-box-shadow: 0 0 12px rgba(72, 106, 170, 1.0), 0 0 18px rgba(0, 140, 255, 1.0);
+                border-color: rgba(160, 179, 214, 1.0);
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="demo">
+    <img class="anim_image" src="star.jpeg">
+</div>
+
+</body>
+<script src="jquery/jquery.min.js"></script>
+<script src="bootstrap/bootstrap.min.js"></script>
+<script type="text/javascript">
+
+</script>
+</html>
