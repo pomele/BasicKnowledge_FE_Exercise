@@ -35,7 +35,7 @@ function flatten_join(arr) {
         return parseInt(item);
     })
 }
-console.log('reduce:')
+console.log('join:')
 console.log(arr)
 console.log(arr.join(','))
 console.log(flatten_join(arr))
