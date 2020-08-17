@@ -32,7 +32,7 @@ function newOperator(ctor){
 }
 
 
-// 例子3 多加一个参数
+// 多加一个参数
 function Student(name, age){
     this.name = name;
     this.age = age;
@@ -98,5 +98,16 @@ function objectFactory() {
     // 在Coustructor内部手动指定函数执行时的this 使用call、apply实现
     Constructor.call(obj,...args);
     return obj;
+}
+
+/**
+ * o.apply(null, args)这段代码有疑问，我觉得是obj.apply(o, args)
+ */
+function _new(obj) {
+    let o = Object.create(obj.prototype),
+        args = [...arguments].slice(1),
+        res
+    res = o.apply(null, args)
+    return res instanceof Object ? res : obj
 }
 

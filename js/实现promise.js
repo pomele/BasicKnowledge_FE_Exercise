@@ -11,6 +11,7 @@
 class Promise2 {
     state = "pending";
     callbacks = [];
+    // 构造方法接收一个function
     constructor(fn) {
         if (typeof fn !== "function") {
             throw new Error("must pass function");

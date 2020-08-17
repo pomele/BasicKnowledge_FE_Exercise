@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<div class="outer">
+    <div class="content">
+        <p>这是要露出来的字</p>
+        <p>这是要露出来的字</p>
+        <p>这是要露出来的字</p>
+    </div>
+    <div class="inner"></div>
+</div>
+</body>
+<style>
+    .outer {
+        position: relative;
+        margin: 20px 0;
+        height: 500px;
+        background: darksalmon;
+        overflow: hidden;
+    }
+
+    .content {
+        width: 200px;
+        height: 80px;
+        color: #FFF;
+        line-height: 1.5;
+        background: #5b8b7b;
+        margin: 100px 0 0 100px;
+    }
+    /*透明边框*/
+    /*.inner {*/
+    /*    position: absolute;*/
+    /*    left: 0;*/
+    /*    top: 0;*/
+    /*    box-sizing: content-box;*/
+    /*    width: 200px;*/
+    /*    height: 80px;*/
+    /*    border-color: rgba(0, 0, 0, 0.5);*/
+    /*    border-style: solid;*/
+    /*    border-width: 100px 1500px 1500px 100px;*/
+    /*    background: transparent;*/
+    /*}*/
+
+    /*透明轮廓*/
+    /*.inner {*/
+    /*    position: absolute;*/
+    /*    left: 100px;*/
+    /*    top: 100px;*/
+    /*    box-sizing: content-box;*/
+    /*    width: 200px;*/
+    /*    height: 80px;*/
+    /*    outline: rgba(0, 0, 0, 0.5) 1500px solid;*/
+    /*    background: transparent;*/
+    /*}*/
+
+    /*透明阴影*/
+    .inner {
+        position: absolute;
+        left: 100px;
+        top: 100px;
+        box-sizing: content-box;
+        width: 200px;
+        height: 80px;
+        box-shadow: rgba(0, 0, 0, 0.5) 0 0 0 1500px;
+        background: transparent;
+    }
+
+    /*cavas*/
+
+
+</style>
+</html>

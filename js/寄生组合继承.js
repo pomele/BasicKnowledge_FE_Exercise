@@ -10,7 +10,7 @@ Parent.prototype.sayName = function(){
     return this.name;
 }
 
-function Child(name, age){
+function Child(name, age) {
     // 相当于super
     Parent.call(this, name);
     this.age = age;
