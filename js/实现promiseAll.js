@@ -31,3 +31,31 @@ function promiseAll(promises) {
         }
     })
 }
+
+
+/**
+ * 另一种写法
+ */
+// 传入一个promise数组
+Promise.all = function(promises){
+// 返回执行后的结果
+    return new Promise((resolve,reject)=>{
+        let arr = [];
+        let i = 0;
+        function processData(index,data){
+            arr[index] = data;
+            // 判断是否全部成功
+            if(++i == promises.length){
+                resolve(arr);
+            }
+        }
+        for(let i = 0;i<promises.length;i++){
+            promises[i].then(data=>{ // data是成功的结果
+                //将每次执行成功后的结果传入函数
+                processData(i,data);
+            },reject);
+        }
+    })
+}
+
+

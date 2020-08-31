@@ -27,7 +27,6 @@ console.log(flatten_reduce(arr))
 
 
 
-
 // join 是针对数组，功能是连接数组元素为一个字符串，可以指定连接字符。
 // toString 针对的对象就比较广了，基本上只要是 javascript 的内建对象，都可以用 toString。具体得到什么内容，要看对象是什么。
 function flatten_join(arr) {
